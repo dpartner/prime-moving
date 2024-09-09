@@ -1,0 +1,13 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #2a3d5e;
+  --accent-color: #d04e47;
+  --light-color: #fff;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 1.7;
+}

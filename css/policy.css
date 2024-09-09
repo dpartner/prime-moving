@@ -1,0 +1,50 @@
+.policy-popup {
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  background-color: antiquewhite;
+  width: 100%;
+  padding: 30px 20px 20px;
+}
+
+.policy-popup.hidden {
+  display: none;
+}
+
+.privacy-close-btn {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 5px;
+  right: 5px;
+  &:before,
+  &::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 5px;
+    background-color: var(--text-color);
+    transform: rotate(45deg);
+    transform-origin: center center;
+  }
+  &::after {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+.policy-text {
+  width: 100%;
+  font-size: 12px;
+}
+
+.policy-link {
+  display: inline;
+  text-decoration: underline;
+  color: blue;
+}
+
+.policy-accept-button {
+  text-decoration: underline;
+  color: blue;
+}

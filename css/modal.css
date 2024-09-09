@@ -1,0 +1,302 @@
+.modal-backdrop {
+  position: fixed;
+  z-index: 990;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+  background: rgba(42, 61, 94, 0.8);
+  opacity: 1;
+  padding: 25px 16px;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: scroll;
+}
+
+.modal-backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.modal-container {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  background: var(--light-color);
+  border-radius: 8px;
+  max-height: 90%;
+  width: calc(100% - 32px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  padding: 72px 16px;
+  overflow-y: scroll;
+}
+.modal-backdrop.is-hidden .modal-container {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+.modal-close-button {
+  position: absolute;
+  z-index: 999;
+  top: 24px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  background-color: rgba(161, 161, 161, 0.1);
+  border: 1px solid rgba(161, 161, 161, 0.4);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-close-button::before {
+  content: '';
+  width: 12px;
+  height: 1px;
+  background-color: var(--text-color);
+  display: block;
+  transform: translate(-50%, -50%) rotate(45deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.modal-close-button::after {
+  content: '';
+  width: 12px;
+  height: 1px;
+  background-color: var(--text-color);
+  display: block;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.modal-heading {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #2e2f42;
+  margin-bottom: 16px;
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.modal-input-wrap {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  margin-bottom: 8px;
+}
+.modal-input {
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 8px;
+  height: 40px;
+  width: 100%;
+  padding: 6px 10px 6px 40px;
+  display: block;
+  caret-color: var(--text-color);
+}
+
+.modal-input:hover,
+.modal-input:focus {
+  border: 1px solid #4d5ae5;
+  outline: none;
+}
+
+textarea.modal-input {
+  height: 120px;
+  padding: 8px 16px;
+  resize: none;
+}
+
+textarea.modal-input::placeholder {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+}
+
+.select-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.modal-input.select {
+  caret-color: transparent;
+  cursor: pointer;
+}
+
+.custom-select-option-wrap {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: var(--light-color);
+  z-index: 10;
+  width: 100%;
+
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 8px 8px;
+  max-height: 0;
+  overflow: scroll;
+  padding: 0;
+  transition: max-height 0.5s ease-in, padding 0.5s ease-in;
+}
+.custom-select-option-wrap.is-show {
+  max-height: 100px;
+  padding: 10px 18px;
+}
+.custom-select-option-wrap.is-show ~ .modal-input-icon {
+  transform: rotate(180deg);
+}
+
+.select-custom-list-item {
+  color: var(--text-color);
+  display: block;
+  margin: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.55556;
+  letter-spacing: 0.04em;
+  pointer-events: visible;
+  cursor: pointer;
+}
+
+.select-custom-list-item:hover,
+.select-custom-list-item:focus {
+  background: #ececec;
+  opacity: 0.8;
+}
+
+.modal-input-label {
+  text-align: left;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+  margin-bottom: 4px;
+}
+.modal-input-icon {
+  fill: var(--text-color);
+  position: absolute;
+  top: 26px;
+  left: 12px;
+  transition: transform 0.5s ease-in;
+}
+
+.modal-input-icon.modal-input-icon-arrow {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--text-color);
+  padding: 3px 2px 2px;
+  top: 28px;
+  left: 14px;
+}
+
+.modal-input-icon.modal-input-icon-date {
+  width: 20px;
+  height: 20px;
+  padding: 3px 2px 2px;
+  top: 28px;
+  left: 14px;
+}
+
+.modal-input-icon use {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.modal-input:hover ~ .modal-input-icon,
+.modal-input:focus ~ .modal-input-icon {
+  fill: #4d5ae5;
+}
+
+.modal-submit-button {
+  background-color: var(--text-color);
+  color: var(--light-color);
+  padding: 19px 75px;
+}
+
+div.flatpickr-wrapper {
+  width: 100%;
+  display: block;
+}
+
+.modal-terms-wrap {
+  position: relative;
+  width: 100%;
+  padding-left: 25px;
+  margin-bottom: 24px;
+}
+
+.terms-checkbox-hidden {
+  display: none;
+}
+
+.terms-checkbox-hidden:hover + .terms-checkbox-label,
+.terms-checkbox-hidden:focus + .terms-checkbox-label {
+  color: var(--text-color);
+  cursor: pointer;
+}
+.terms-checkbox-hidden:checked + .terms-checkbox-label .terms-checkbox-box {
+  background-color: var(--text-color);
+}
+
+.terms-checkbox-hidden:checked + .terms-checkbox-label .terms-checkbox-icon {
+  opacity: 1;
+}
+
+.terms-checkbox-label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #8e8f99;
+}
+
+.terms-checkbox-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.terms-checkbox-icon {
+  fill: var(--light-color);
+  opacity: 0;
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.terms-link {
+  color: var(--text-color);
+}
+
+.terms-link:hover,
+.terms-link:focus {
+  color: var(--selected-color);
+  text-decoration: underline;
+}
