@@ -1,3 +1,8 @@
+.privacy-header {
+  background-color: var(--text-color);
+  position: relative;
+}
+
 .policy-section {
   text-align: left;
   padding: 40px 0 90px;

@@ -19,17 +19,20 @@
   right: 5px;
   &:before,
   &::after {
-    content: '';
+    content: "";
     display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 20px;
     height: 2px;
     border-radius: 5px;
     background-color: var(--text-color);
-    transform: rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
     transform-origin: center center;
   }
   &::after {
-    transform: translateY(-50%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 }
 
