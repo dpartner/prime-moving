@@ -147,6 +147,10 @@ img {
   align-items: center;
   fill: var(--accent-color);
   transition: all 0.3s ease-in;
+  @media screen and (min-width: 1440px) {
+    width: 6px;
+    height: 11px;
+  }
 }
 
 .button-primary:hover .button-icon-arrow,
