@@ -1,3 +1,5 @@
+import { sync } from "glob";
+
 export default {
   root: "./src",
   build: {
