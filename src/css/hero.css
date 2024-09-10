@@ -62,12 +62,15 @@
   margin-bottom: 2px;
 
   @media screen and (min-width: 1200px) {
+    font-weight: 700;
+    font-size: 219px;
+    line-height: 1;
+  }
+  @media screen and (min-width: 1560px) {
     background: linear-gradient(180deg, #fff 50%, rgba(217, 217, 217, 0) 110%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: 700;
-    font-size: 219px;
-    line-height: 1.30433;
+    line-height: 1.3;
   }
 }
 
