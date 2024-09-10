@@ -122,6 +122,10 @@ img {
   line-height: 1.3;
   text-align: center;
   transition: all 0.3s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   @media screen and (min-width: 1440px) {
     font-weight: 500;
     font-size: 15px;
@@ -140,6 +144,7 @@ img {
 }
 
 .button-icon-arrow {
+  align-items: center;
   fill: var(--accent-color);
   transition: all 0.3s ease-in;
 }
