@@ -121,11 +121,17 @@ img {
   font-size: 10px;
   line-height: 1.3;
   text-align: center;
+  transition: all 0.3s ease-in;
   @media screen and (min-width: 1440px) {
     font-weight: 500;
     font-size: 15px;
     line-height: 1.3;
     padding: 30px 69px;
+  }
+  &:hover,
+  &:focus {
+    color: var(--light-color);
+    background-color: var(--accent-color);
   }
 }
 
@@ -135,6 +141,12 @@ img {
 
 .button-icon-arrow {
   fill: var(--accent-color);
+  transition: all 0.3s ease-in;
+}
+
+.button-primary:hover .button-icon-arrow,
+.button-primary:focus .button-icon-arrow {
+  fill: var(--light-color);
 }
 
 .dark-color {
