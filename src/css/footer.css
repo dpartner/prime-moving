@@ -106,6 +106,7 @@
 .privacy-text a {
   display: inline;
   color: inherit;
+  text-decoration: underline;
 }
 
 .privacy-text a:first-child {

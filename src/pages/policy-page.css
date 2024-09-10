@@ -7,7 +7,10 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  background-color: var(--text-color);
+  background: linear-gradient(180deg, #2a3d5e 85%, rgba(42, 61, 94, 0.24) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-align: left;
 }
 

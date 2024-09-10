@@ -1,23 +1,23 @@
 export const handleSelect = (ev, listName) => {
   const customOptionsWrap = ev.target.nextElementSibling;
-  customOptionsWrap.classList.add('is-show');
+  customOptionsWrap.classList.add("is-show");
 
   //  Adding custom select options in modal input
   for (const list of selectLists) {
     if (list.name === listName) {
       customOptionsWrap.innerHTML = list.options
         .map(
-          option =>
+          (option) =>
             `<span class="select-custom-list-item" data-select="${option.value}">${option.text}</span>`
         )
-        .join('');
+        .join("");
     }
   }
   // Save user choice and close custom select modal
-  customOptionsWrap.addEventListener('click', sel => {
+  customOptionsWrap.addEventListener("click", (sel) => {
     let userSelect = sel.target.dataset.select;
     ev.target.value = userSelect;
-    customOptionsWrap.classList.remove('is-show');
+    customOptionsWrap.classList.remove("is-show");
   });
 };
 
@@ -25,60 +25,64 @@ export const handleSelect = (ev, listName) => {
 
 export const selectLists = [
   {
-    name: 'service',
+    name: "service",
     options: [
       {
-        value: 'Residential/Commercial moving',
-        text: 'Residential/Commercial moving',
+        value: "Residential/Commercial moving",
+        text: "Residential/Commercial moving",
       },
       {
-        value: 'Long distance',
-        text: 'Long distance',
+        value: "Long distance",
+        text: "Long distance",
       },
       {
-        value: 'Furniture delivery',
-        text: 'Furniture delivery',
+        value: "Furniture delivery",
+        text: "Furniture delivery",
       },
       {
-        value: 'Internal (No truck)',
-        text: 'Internal (No truck)',
+        value: "Internal (No truck)",
+        text: "Internal (No truck)",
       },
       {
-        value: 'Cold/hot tub',
-        text: 'Cold/hot tub',
+        value: "Cold/hot tub",
+        text: "Cold/hot tub",
       },
       {
-        value: 'Piano',
-        text: 'Piano',
+        value: "Piano",
+        text: "Piano",
       },
       {
-        value: 'Gym',
-        text: 'Gym',
+        value: "Gym",
+        text: "Gym",
       },
     ],
   },
   {
-    name: 'requirement',
+    name: "requirement",
     options: [
       {
-        value: 'Office',
-        text: 'Office',
+        value: "House",
+        text: "House",
       },
       {
-        value: 'Gym',
-        text: 'Gym',
+        value: "Apartment",
+        text: "Apartment",
       },
       {
-        value: 'Сlinic etc',
-        text: 'Сlinic etc',
+        value: "Office",
+        text: "Office",
       },
       {
-        value: 'House',
-        text: 'House',
+        value: "Storage",
+        text: "Storage",
       },
       {
-        value: 'Townhouse',
-        text: 'Townhouse',
+        value: "Clinic",
+        text: "Clinic",
+      },
+      {
+        value: "Gym",
+        text: "Gym",
       },
     ],
   },

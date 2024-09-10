@@ -69,10 +69,7 @@ h2 {
   line-height: 1.30433;
   text-transform: uppercase;
   text-align: center;
-  background: linear-gradient(180deg, #2a3d5e 55%, rgba(42, 61, 94, 0.24) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
   margin-bottom: 34px;
 }
 
@@ -103,7 +100,7 @@ p {
 }
 
 .light-title {
-  background: linear-gradient(180deg, #fff 60%, rgba(0, 0, 0, 0.24) 100%);
+  background: linear-gradient(180deg, #fff 65%, rgba(0, 0, 0, 0.24) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -141,4 +138,11 @@ img {
 
 .dark-color {
   color: var(--text-color);
+}
+
+.section-title {
+  background: linear-gradient(180deg, #2a3d5e 65%, rgba(42, 61, 94, 0.24) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
