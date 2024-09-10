@@ -49,6 +49,10 @@
   }
 }
 
+.hero-container h1 {
+  text-align: center;
+}
+
 .hero-title {
   font-weight: 700;
   font-size: 71px;
@@ -56,7 +60,7 @@
   letter-spacing: -0.04em;
   text-transform: uppercase;
   text-align: center;
-  background: linear-gradient(180deg, #fff 80%, rgba(217, 217, 217, 0) 100%);
+  background: linear-gradient(180deg, #fff 50%, rgba(217, 217, 217, 0) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 2px;
@@ -67,9 +71,6 @@
     line-height: 1;
   }
   @media screen and (min-width: 1560px) {
-    background: linear-gradient(180deg, #fff 50%, rgba(217, 217, 217, 0) 110%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     line-height: 1.3;
   }
 }
