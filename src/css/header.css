@@ -1,6 +1,7 @@
 .header-section {
   padding: 12px 0;
   @media screen and (min-width: 1200px) {
+    padding: 35px 0;
     background-color: transparent;
     position: absolute;
     top: 0;
@@ -128,6 +129,13 @@
   font-size: 18px;
   line-height: 1.30433;
   &:hover {
+    background: linear-gradient(
+      95deg,
+      rgba(226, 226, 226, 0.25) 0%,
+      rgba(198, 198, 198, 0.25) 100%
+    );
+  }
+  &.active {
     background: linear-gradient(
       95deg,
       rgba(226, 226, 226, 0.25) 0%,
