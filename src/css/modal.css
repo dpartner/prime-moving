@@ -52,7 +52,7 @@
   align-items: center;
 }
 .modal-close-button::before {
-  content: '';
+  content: "";
   width: 12px;
   height: 1px;
   background-color: var(--text-color);
@@ -63,7 +63,7 @@
   left: 50%;
 }
 .modal-close-button::after {
-  content: '';
+  content: "";
   width: 12px;
   height: 1px;
   background-color: var(--text-color);
@@ -114,11 +114,21 @@
   border: 1px solid #4d5ae5;
   outline: none;
 }
+.modal-input.error:hover,
+.modal-input.error:focus {
+  border: 1px solid var(--accent-color);
+  outline: none;
+}
 
 textarea.modal-input {
   height: 120px;
   padding: 8px 16px;
   resize: none;
+}
+input.error {
+  box-shadow: 0 0 3px var(--accent-color);
+  border-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
 }
 
 textarea.modal-input::placeholder {
@@ -137,6 +147,26 @@ textarea.modal-input::placeholder {
 .modal-input.select {
   caret-color: transparent;
   cursor: pointer;
+}
+
+p.invalid {
+  position: absolute;
+  opacity: 0;
+  right: 10px;
+  top: 80%;
+  color: red;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-input.error ~ p.invalid {
+  opacity: 1;
+  right: 10px;
+  top: 105%;
+}
+.terms-checkbox-hidden.error ~ p.invalid {
+  opacity: 1;
+  right: 10px;
+  top: 105%;
 }
 
 .custom-select-option-wrap {
@@ -261,6 +291,13 @@ div.flatpickr-wrapper {
   opacity: 1;
 }
 
+.terms-checkbox-hidden.error + .terms-checkbox-label {
+  color: var(--accent-color);
+}
+.terms-checkbox-hidden.error + .terms-checkbox-label .terms-checkbox-box {
+  box-shadow: 0 0 15px red;
+}
+
 .terms-checkbox-label {
   font-weight: 400;
   font-size: 12px;
@@ -269,6 +306,11 @@ div.flatpickr-wrapper {
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: #8e8f99;
+  padding: 4px;
+  border-radius: 5px;
+  /* display: flex;
+  justify-content: start;
+  align-items: center; */
 }
 
 .terms-checkbox-box {
@@ -280,7 +322,7 @@ div.flatpickr-wrapper {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 10px;
+  top: 5px;
   left: 0;
   transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -292,6 +334,7 @@ div.flatpickr-wrapper {
 }
 
 .terms-link {
+  display: inline;
   color: var(--text-color);
 }
 

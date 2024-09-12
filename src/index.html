@@ -787,7 +787,7 @@
         <p class="modal-heading">
           Leave a request and we will get back to you!
         </p>
-        <form class="modal-form" action="" novalidate>
+        <form class="modal-form" action="#" novalidate id="form">
           <div class="modal-input-wrap">
             <input
               class="modal-input"
@@ -800,6 +800,7 @@
             <svg class="modal-input-icon" width="24" height="24">
               <use href="./img/svg/symbol-defs.svg#icon-modal-name"></use>
             </svg>
+            <p class="invalid">Invalid value</p>
           </div>
           <div class="modal-input-wrap">
             <input
@@ -813,6 +814,7 @@
             <svg class="modal-input-icon" width="24" height="24">
               <use href="./img/svg/symbol-defs.svg#icon-modal-phone"></use>
             </svg>
+            <p class="invalid">Invalid value</p>
           </div>
           <div class="modal-input-wrap">
             <input
@@ -826,6 +828,7 @@
             <svg class="modal-input-icon" width="24" height="24">
               <use href="./img/svg/symbol-defs.svg#icon-modal-mail"></use>
             </svg>
+            <p class="invalid">Invalid value</p>
           </div>
           <div class="modal-input-wrap">
             <input
@@ -843,6 +846,7 @@
             >
               <use href="./img/svg/symbol-defs.svg#icon-modal-date"></use>
             </svg>
+            <p class="invalid">Invalid value</p>
           </div>
           <div class="modal-input-wrap">
             <input
@@ -868,6 +872,7 @@
             >
               <use href="./img/svg/symbol-defs.svg#icon-modal-arrow"></use>
             </svg>
+            <p class="invalid">Invalid value</p>
           </div>
           <div class="modal-input-wrap">
             <input
@@ -894,6 +899,7 @@
             >
               <use href="./img/svg/symbol-defs.svg#icon-modal-arrow"></use>
             </svg>
+            <p class="invalid">Invalid value</p>
           </div>
           <div class="modal-input-wrap">
             <textarea
@@ -904,6 +910,7 @@
               placeholder="Please include: Additional Comments"
             ></textarea>
             <label class="modal-input-label" for="comment">Comment</label>
+            <p class="invalid">Invalid value</p>
           </div>
           <div class="modal-terms-wrap">
             <input
@@ -911,6 +918,7 @@
               class="terms-checkbox-hidden"
               name="terms-checkbox"
               id="terms-checkbox"
+              required
             />
             <label class="terms-checkbox-label" for="terms-checkbox">
               <span class="terms-checkbox-box">
@@ -923,6 +931,7 @@
                 >Privacy Policy</a
               >
             </label>
+            <p class="invalid">Required field</p>
           </div>
           <button class="button-primary modal-submit-button" type="submit">
             Send
