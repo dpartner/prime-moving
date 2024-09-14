@@ -1,10 +1,12 @@
 export const handleGallery = (
   ev,
-  { expGalleryList, expGalleryItem, expGalleryNumberItem },
+  expGalleryList,
+  expGalleryItem,
+  expGalleryNumberItem,
   galleryItemCount
 ) => {
-  const rightArrow = 'gallery-right-arrow';
-  const leftArrow = 'gallery-left-arrow';
+  const rightArrow = "gallery-right-arrow";
+  const leftArrow = "gallery-left-arrow";
   const galleryItemWidth = expGalleryItem.offsetWidth;
   const galleryItemLenght = expGalleryList.children.length;
   // const galleryItemWidth = document.querySelector(
@@ -42,14 +44,16 @@ export const handleGallery = (
 
 export const handleGallerySwipe = (
   direction,
-  { expGalleryList, expGalleryItem, expGalleryNumberItem },
+  expGalleryList,
+  expGalleryItem,
+  expGalleryNumberItem,
   galleryItemCount
 ) => {
   const galleryItemWidth = expGalleryItem.offsetWidth;
   const galleryItemLenght = expGalleryList.children.length;
   let padding = 15;
 
-  if (direction === 'left') {
+  if (direction === "left") {
     if (galleryItemCount === galleryItemLenght - 1) {
       return galleryItemCount;
     }
@@ -61,7 +65,7 @@ export const handleGallerySwipe = (
     }px)`;
     return galleryItemCount;
   }
-  if (direction === 'right') {
+  if (direction === "right") {
     if (galleryItemCount === 0) {
       return (galleryItemCount = 0);
     }

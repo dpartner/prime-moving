@@ -29,11 +29,18 @@ const domElements = {
   modalRequirementSelect: document.querySelector(
     '[data-listname="requirement"]'
   ),
-  expGalleryButtonsWrap: document.querySelector(".gallery-arrow-wrap"),
-  expGalleryList: document.querySelector(".experience-gallery-list"),
-  expGalleryItem: document.querySelector(".experience-gallery-item"),
+  expGalleryButtonsWrap: document.querySelector(".gallery-arrow-wrap.exp"),
+  expGalleryList: document.querySelector(".experience-gallery-list.exp"),
+  expGalleryItem: document.querySelector(".experience-gallery-item.exp"),
   expGalleryNumberItem: document.querySelector('[data-gallery="count"]'),
   expGalleryNumberLength: document.querySelector('[data-gallery="length"]'),
+  goalGalleryButtonsWrap: document.querySelector(".gallery-arrow-wrap.goal"),
+  goalGalleryList: document.querySelector(".experience-gallery-list.goal"),
+  goalGalleryItem: document.querySelector(".experience-gallery-item.goal"),
+  goalGalleryNumberItem: document.querySelector('[data-goalGallery="count"]'),
+  goalGalleryNumberLength: document.querySelector(
+    '[data-goalGallery="length"]'
+  ),
 };
 
 // Open Mobile Menu
@@ -86,24 +93,46 @@ flatpickr("#date", {
   disableMobile: true,
 });
 
-// Experiense section gallery handle
+// Experiense section and goal section gallery handle
 domElements.expGalleryNumberLength.textContent =
   domElements.expGalleryList.children.length;
+domElements.goalGalleryNumberLength.textContent =
+  domElements.goalGalleryList.children.length;
 
 let galleryItemCount = 0;
+let goalGalleryItemCount = 0;
 domElements.expGalleryButtonsWrap.addEventListener("click", (ev) => {
-  galleryItemCount = handleGallery(ev, domElements, galleryItemCount);
+  galleryItemCount = handleGallery(
+    ev,
+    domElements.expGalleryList,
+    domElements.expGalleryItem,
+    domElements.expGalleryNumberItem,
+    galleryItemCount
+  );
+});
+domElements.goalGalleryButtonsWrap.addEventListener("click", (ev) => {
+  goalGalleryItemCount = handleGallery(
+    ev,
+    domElements.goalGalleryList,
+    domElements.goalGalleryItem,
+    domElements.goalGalleryNumberItem,
+    goalGalleryItemCount
+  );
 });
 
 // Swipe gallery
 let touchstartX = 0;
 let touchendX = 0;
+let goalTouchstartX = 0;
+let goalTouchendX = 0;
 
-function checkDirection() {
+function checkDirectionExp() {
   if (touchendX < touchstartX) {
     galleryItemCount = handleGallerySwipe(
       "left",
-      domElements,
+      domElements.expGalleryList,
+      domElements.expGalleryItem,
+      domElements.expGalleryNumberItem,
       galleryItemCount
     );
     touchstartX = 0;
@@ -112,7 +141,9 @@ function checkDirection() {
   if (touchendX > touchstartX) {
     galleryItemCount = handleGallerySwipe(
       "right",
-      domElements,
+      domElements.expGalleryList,
+      domElements.expGalleryItem,
+      domElements.expGalleryNumberItem,
       galleryItemCount
     );
     touchstartX = 0;
@@ -120,13 +151,45 @@ function checkDirection() {
   }
 }
 
+function checkDirectionGoal() {
+  if (goalTouchendX < goalTouchstartX) {
+    goalGalleryItemCount = handleGallerySwipe(
+      "left",
+      domElements.goalGalleryList,
+      domElements.goalGalleryItem,
+      domElements.goalGalleryNumberItem,
+      goalGalleryItemCount
+    );
+    goalTouchstartX = 0;
+    goalTouchendX = 0;
+  }
+  if (goalTouchendX > goalTouchstartX) {
+    goalGalleryItemCount = handleGallerySwipe(
+      "right",
+      domElements.goalGalleryList,
+      domElements.goalGalleryItem,
+      domElements.goalGalleryNumberItem,
+      goalGalleryItemCount
+    );
+    goalTouchstartX = 0;
+    goalTouchendX = 0;
+  }
+}
+
 domElements.expGalleryList.addEventListener("touchstart", (e) => {
   touchstartX = e.changedTouches[0].screenX;
+});
+domElements.goalGalleryList.addEventListener("touchstart", (e) => {
+  goalTouchstartX = e.changedTouches[0].screenX;
 });
 
 domElements.expGalleryList.addEventListener("touchend", (e) => {
   touchendX = e.changedTouches[0].screenX;
-  checkDirection();
+  checkDirectionExp();
+});
+domElements.goalGalleryList.addEventListener("touchend", (e) => {
+  goalTouchendX = e.changedTouches[0].screenX;
+  checkDirectionGoal();
 });
 
 // Sending formData to Mail and validation

@@ -178,6 +178,11 @@
   align-items: center;
   font-display: row;
 
+  &:focus,
+  &:hover {
+    color: var(--accent-color);
+  }
+
   @media screen and (max-width: 1439px) {
     display: none;
   }
