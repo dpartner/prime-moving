@@ -34,6 +34,7 @@
   overflow-y: scroll;
   @media screen and (min-width: 1440px) {
     max-width: 564px;
+    padding: 72px 32px;
   }
 }
 .modal-backdrop.is-hidden .modal-container {
@@ -53,6 +54,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &:hover,
+  &:focus {
+    background-color: var(--accent-color);
+  }
+  &:hover::before,
+  &:hover::after,
+  &:focus::before,
+  &:focus::after {
+    background-color: var(--light-color);
+  }
 }
 .modal-close-button::before {
   content: "";
@@ -159,6 +170,9 @@ p.invalid {
   top: 80%;
   color: red;
   transition: all 0.3s ease-in-out;
+  @media screen and (min-width: 1440px) {
+    font-size: 12px;
+  }
 }
 
 .modal-input.error ~ p.invalid {
@@ -345,4 +359,38 @@ div.flatpickr-wrapper {
 .terms-link:focus {
   color: var(--selected-color);
   text-decoration: underline;
+}
+
+.loader-wrap {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  background-color: var(--light-color);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.1s ease-in;
+
+  &.is-show {
+    transform: scale(1);
+    opacity: 1;
+  }
+  & img {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    transform: translate(150%, -50%);
+    transition: all 0.4s 0.3s ease-in;
+    width: 70%;
+  }
+
+  &.is-show img {
+    transform: translate(-50%, -50%);
+  }
+  &.sended img {
+    transform: translate(-200%, -50%);
+  }
 }

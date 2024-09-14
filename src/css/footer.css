@@ -167,8 +167,11 @@
   }
 }
 
-.footer-button {
-  /* margin-bottom: 65px; */
+.footer-button:hover,
+.footer-button:focus {
+  @media screen and (min-width: 1440px) {
+    background-color: var(--text-color);
+  }
 }
 
 .privacy-wrap {

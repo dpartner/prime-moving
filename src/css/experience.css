@@ -25,6 +25,7 @@
 }
 
 .gallery-arrow-wrap {
+  margin-bottom: 15px;
   @media screen and (min-width: 1440px) {
     margin-bottom: 28px;
   }
@@ -35,18 +36,43 @@
   }
 }
 
+.gallery-left-arrow {
+  margin-right: 12px;
+  &:hover .gallery-button-icon-wrap,
+  &:focus .gallery-button-icon-wrap {
+    background-color: var(--accent-color);
+    border-color: transparent;
+  }
+  &:hover .gallery-button-icon,
+  &:focus .gallery-button-icon {
+    fill: var(--light-color);
+  }
+}
+.gallery-right-arrow {
+  &:hover .gallery-button-icon-wrap,
+  &:focus .gallery-button-icon-wrap {
+    background-color: var(--accent-color);
+    border-color: transparent;
+  }
+  &:hover .gallery-button-icon,
+  &:focus .gallery-button-icon {
+    fill: var(--light-color);
+  }
+}
+
 .gallery-button-icon-wrap {
   width: 32px;
   height: 32px;
   border: 1px solid var(--text-color);
   border-radius: 100%;
-  stroke-width: 1px;
-  stroke: var(--text-color);
+  /* stroke-width: 1px;
+  stroke: var(--text-color); */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   pointer-events: none;
+  background-color: transparent;
   @media screen and (min-width: 1440px) {
     width: 64px;
     height: 64px;
@@ -58,10 +84,6 @@
     width: 15px;
     height: 23px;
   }
-}
-
-.gallery-left-arrow {
-  margin-right: 12px;
 }
 
 .experiense-gallery-wrap {
@@ -100,11 +122,18 @@
   border-radius: 8px;
   box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  transition: all 0.3s ease-in;
   &.exp {
     @media screen and (min-width: 1440px) {
       flex-basis: calc((100% - 72px) / 4);
       min-width: 0;
       border-radius: 20px;
+    }
+  }
+  &.exp:hover,
+  &.exp:focus {
+    @media screen and (min-width: 1440px) {
+      transform: scale(1.1);
     }
   }
 }

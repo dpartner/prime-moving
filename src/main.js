@@ -75,12 +75,39 @@ domElements.modalCloseButton.addEventListener("click", () =>
   domElements.modalBackDrop.classList.add("is-hidden")
 );
 
+function closeModal() {
+  domElements.modalBackDrop.classList.add("is-hidden");
+  window.removeEventListener("keydown", closeModal);
+  domElements.modalBackDrop.removeEventListener("click", closeModal);
+}
+
 // Open Modal form
 document.querySelector("body").addEventListener("click", (ev) => {
   if (ev.target.dataset.set === "open-modal") {
     domElements.modalBackDrop.classList.remove("is-hidden");
+    loaderHeight();
+    window.addEventListener("keydown", (e) => {
+      if (e.code === "Escape") {
+        closeModal();
+      }
+    });
+    domElements.modalBackDrop.addEventListener("click", (e) => {
+      if (e.target.classList.contains("modal-backdrop")) {
+        closeModal();
+      }
+    });
   }
 });
+
+function loaderHeight () {
+  let modalContainer = document.querySelector('.modal-container');
+  let loader = document.querySelector('.loader-wrap');
+  let loaderHeight = modalContainer.scrollHeight - 128;
+
+  loader.style.height = loaderHeight + 'px';
+
+
+}
 
 // Adding custom calendar in Modal Form
 flatpickr("#date", {
@@ -249,6 +276,18 @@ async function handleSendingMail(e) {
   });
   if (response.ok) {
     let result = await response.json();
+    document.querySelector('.loader-wrap').classList.add('is-show');
+    document.querySelector('.modal-submit-button').textContent = 'Sending...';
+    setTimeout(()=> {
+      document.querySelector('.loader-wrap').classList.add('sended');
+      document.querySelector('.modal-submit-button').textContent = 'Sended';
+    },2000);
+    setTimeout(()=> {
+      document.querySelector('.loader-wrap').classList.remove('is-show');
+      domElements.modalBackDrop.classList.add("is-hidden");
+      document.querySelector('.modal-submit-button').textContent = 'Send';
+
+    },4000);
     console.log(result.result);
     console.log(result.status);
     domElements.modalForm.reset();

@@ -147,12 +147,9 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 1.3;
-  &:hover {
-    background: linear-gradient(
-      95deg,
-      rgba(226, 226, 226, 0.25) 0%,
-      rgba(198, 198, 198, 0.25) 100%
-    );
+  &:hover,
+  &:focus {
+    color: #dcdcdc;
   }
   &.active {
     background: linear-gradient(
@@ -181,6 +178,10 @@
   &:focus,
   &:hover {
     color: var(--accent-color);
+  }
+  &:focus svg,
+  &:hover svg {
+    fill: var(--accent-color);
   }
 
   @media screen and (max-width: 1439px) {
