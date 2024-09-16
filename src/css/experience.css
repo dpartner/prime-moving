@@ -90,6 +90,12 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+
+  &.exp {
+    @media screen and (min-width: 1440px) {
+    overflow: visible;
+    }
+  }
 }
 
 .experience-gallery-list {
@@ -123,6 +129,7 @@
   box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.25);
   overflow: hidden;
   transition: all 0.3s ease-in;
+  /* pointer-events: none; */
   &.exp {
     @media screen and (min-width: 1440px) {
       flex-basis: calc((100% - 72px) / 4);
@@ -140,4 +147,8 @@
 
 .experience-gallery-img {
   width: 100%;
+}
+
+.simple-lightbox {
+  background-color: rgb(42,61,94, 0.8);
 }

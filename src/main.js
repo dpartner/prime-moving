@@ -8,6 +8,10 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import throttle from "lodash.throttle";
 import IMask from "imask";
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+
 
 // Render dynamyc elements
 // document.querySelector('.experience-gallery-list').innerHTML =
@@ -328,3 +332,39 @@ function validation(input) {
   } else formElement.classList.remove("error");
   return true;
 }
+
+// const imgUrl = new URL('./img/exp-gallery/gallery-large-1.jpg', import.meta.url).href;
+
+// document.getElementById('test').href = imgUrl;
+
+// Adding production href for <a></a>
+
+const allGalleryLargeImgLinks = document.querySelectorAll('.experience-gallery-link.exp');
+for (let i = 0; i < allGalleryLargeImgLinks.length; i++) {
+  const numberElement = i +1;
+  allGalleryLargeImgLinks[i].href = getLargeImgUrl(numberElement);
+}
+
+function getLargeImgUrl(number) {
+  return new URL(`./img/exp-gallery/gallery-large-${number}.jpg`, import.meta.url).href
+}
+
+// Adding SimpleLightBox only for PC version
+
+function shownLightBox () {
+  if (window.innerWidth >= 1400) {
+    const lightbox = new SimpleLightbox('.experience-gallery-list.exp a',{
+      captionDelay: 250,
+    })
+    } else {
+      domElements.expGalleryList.addEventListener('click', (e)=> {
+        e.preventDefault();
+        // console.log(e)
+      })
+  }
+}
+shownLightBox();
+
+
+
+
