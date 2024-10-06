@@ -1,0 +1,218 @@
+.hero-section.whyus {
+  padding: 70px 0 56px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(42, 61, 94, 0.8),
+      rgba(42, 61, 94, 0.8)
+    ),
+    url(../img/hero-mob-whyus@1x.webp);
+  @media (min-resolution: 192dpi) {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(42, 61, 94, 0.8),
+        rgba(42, 61, 94, 0.8)
+      ),
+      url(../img/hero-mob-whyus@2x.webp);
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 193px 0 66px;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(42, 61, 94, 0.8),
+        rgba(42, 61, 94, 0.8)
+      ),
+      url(../img/hero-desk-whyus@1x.webp);
+  }
+  @media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(42, 61, 94, 0.8),
+        rgba(42, 61, 94, 0.8)
+      ),
+      url(../img/hero-desk-whyus@2x.webp);
+  }
+}
+
+.hero-second-title.whyus {
+  margin-bottom: 67px;
+  max-width: none;
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 140px;
+  }
+  & span {
+    color: var(--accent-color);
+  }
+}
+
+.whyus-card-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: 36px;
+  column-gap: 8px;
+  @media screen and (min-width: 1440px) {
+    column-gap: 132px;
+  }
+}
+
+.whyus-card-list.equipped {
+  @media screen and (min-width: 1440px) {
+    column-gap: 24px;
+  }
+}
+
+.whyus-card-list-item {
+  flex-basis: calc((100% - 8px) / 2);
+  @media screen and (min-width: 1440px) {
+    flex-basis: calc((100% - 264px) / 3);
+  }
+}
+
+.whyus-card-list-item.equipped {
+  @media screen and (min-width: 1440px) {
+    flex-basis: calc((100% - 72px) / 4);
+  }
+}
+
+.section-desc-wrap.light.whyus {
+  padding: 35px 9px 21px;
+  min-height: 164px;
+  margin-bottom: 0;
+  @media screen and (min-width: 1440px) {
+    min-height: 273px;
+    padding: 68px 35px 42px;
+    border-radius: 20px;
+  }
+}
+
+.section-desc-wrap.whyus.review {
+  padding: 34px 13px 28px;
+  @media screen and (min-width: 1440px) {
+    padding: 59px 20px 34px;
+    border-radius: 20px;
+  }
+}
+
+.section-desc-icon-wrap.whyus {
+  width: 40px;
+  height: 40px;
+  top: 0;
+  @media screen and (min-width: 1440px) {
+    width: 68px;
+    height: 68px;
+    & svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.section-desc-icon.whyus {
+  fill: var(--accent-color);
+  /* stroke: var(--accent-color); */
+}
+
+.section-desc-title.whyus {
+  font-weight: 600;
+  font-size: 9px;
+  @media screen and (min-width: 1440px) {
+    font-size: 15px;
+    margin-bottom: 23px;
+  }
+}
+
+.section-desc.whyus {
+  @media screen and (min-width: 1440px) {
+    font-size: 15px;
+  }
+}
+
+.goal-gallery.whyus {
+  margin-bottom: 53px;
+  @media screen and (min-width: 1440px) {
+    min-width: 456px;
+  }
+}
+
+.review-p {
+  font-weight: 500;
+  max-width: 247px;
+  margin-bottom: 20px;
+  @media screen and (min-width: 1440px) {
+    max-width: 356px;
+    margin-bottom: 42px;
+  }
+}
+
+.section-desc.review {
+  font-size: 15px;
+}
+
+.goal-container .button-primary.dark.whyus {
+  display: block;
+}
+
+.equipped-section {
+  padding: 90px 0;
+  background-color: var(--text-color);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(42, 61, 94, 0.8),
+      rgba(42, 61, 94, 0.8)
+    ),
+    url(../img/equipped-sect-mob@1x.webp);
+  @media (min-resolution: 192dpi) {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(42, 61, 94, 0.8),
+        rgba(42, 61, 94, 0.8)
+      ),
+      url(../img/equipped-sect-mob@2x.webp);
+  }
+
+  @media screen and (min-width: 1440px) {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(42, 61, 94, 0.8),
+        rgba(42, 61, 94, 0.8)
+      ),
+      url(../img/equipped-sect-desc@1x.webp);
+  }
+  @media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(42, 61, 94, 0.8),
+        rgba(42, 61, 94, 0.8)
+      ),
+      url(../img/equipped-sect-desc@2x.webp);
+  }
+}
+
+.section-desc-icon.accent-icon.stroke {
+  stroke: var(--accent-color);
+}
+
+.whyus-card-list.equipped {
+  row-gap: 51px;
+}
+
+.section-desc-wrap.light.whyus.equipped {
+  min-height: 153px;
+  padding: 35px 6px 20px;
+  @media screen and (min-width: 1440px) {
+    padding: 68px 16px 34px;
+    min-height: 245px;
+  }
+}
+
+.section-second-title.whyus {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.30433;
+}
