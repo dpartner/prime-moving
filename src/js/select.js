@@ -55,6 +55,18 @@ export const selectLists = [
         value: "Gym",
         text: "Gym",
       },
+      {
+        value: "Packing",
+        text: "Packing",
+      },
+      {
+        value: "Unpacking",
+        text: "Unpacking",
+      },
+      {
+        value: "Storage",
+        text: "Storage",
+      },
     ],
   },
   {
