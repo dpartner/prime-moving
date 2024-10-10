@@ -28,44 +28,56 @@ export const selectLists = [
     name: "service",
     options: [
       {
-        value: "Residential/Commercial moving",
-        text: "Residential/Commercial moving",
+        value: "Local Moving",
+        text: "Local Moving",
       },
       {
-        value: "Long distance",
-        text: "Long distance",
+        value: "Residential Moving",
+        text: "Residential Moving",
       },
       {
-        value: "Furniture delivery",
-        text: "Furniture delivery",
-      },
-      {
-        value: "Internal (No truck)",
-        text: "Internal (No truck)",
-      },
-      {
-        value: "Cold/hot tub",
-        text: "Cold/hot tub",
-      },
-      {
-        value: "Piano",
-        text: "Piano",
-      },
-      {
-        value: "Gym",
-        text: "Gym",
+        value: "Commercial and Office Moving",
+        text: "Commercial and Office Moving",
       },
       {
         value: "Packing",
         text: "Packing",
       },
       {
-        value: "Unpacking",
-        text: "Unpacking",
+        value: "Manpower Services",
+        text: "Manpower Services",
       },
       {
-        value: "Storage",
-        text: "Storage",
+        value: "Long Distance Moving",
+        text: "Long Distance Moving",
+      },
+      {
+        value: "Piano Moving",
+        text: "Piano Moving",
+      },
+      {
+        value: "Pool Tables and Safes",
+        text: "Pool Tables and Safes",
+      },
+      {
+        value: "Cleaning Services",
+        text: "Cleaning Services",
+      },
+      {
+        value: "Garbage Removal",
+        text: "Garbage Removal",
+      },
+      {
+        value: "Last Minute Moving",
+        text: "Last Minute Moving",
+      },
+      {
+        value: "Appliances",
+        text: "Appliances",
+      },
+      {
+        value: "Exercise Equipment",
+        text: "Exercise Equipment",
       },
     ],
   },

@@ -7,6 +7,7 @@ import "flatpickr/dist/flatpickr.min.css";
 import throttle from "lodash.throttle";
 import IMask from "imask";
 import "simplelightbox/dist/simple-lightbox.min.css";
+import symbolDefs from "../../img/svg/services/symbol-defs-services.svg";
 
 // Render dynamyc elements
 // document.querySelector('.experience-gallery-list').innerHTML =
@@ -40,7 +41,7 @@ addMarkup();
 
 function createServicesMarkup(data) {
   return data
-    .map(({ id, heading, description, icon }) => {
+    .map(({ id, heading, description, icon, className }) => {
       return `
             <li class="service-list-item">
               <div
@@ -50,12 +51,12 @@ function createServicesMarkup(data) {
               >
                 <div class="section-desc-icon-wrap services">
                   <svg
-                    class="section-desc-icon services"
+                    class="section-desc-icon services ${className}"
                     width="30"
                     height="30"
                   >
                     <use
-                      href="../img/svg/services/symbol-defs-services.svg${icon}"
+                      href="${symbolDefs}${icon}"
                     ></use>
                   </svg>
                 </div>
@@ -70,14 +71,14 @@ function createServicesMarkup(data) {
     .join("");
 }
 
-function createPopUpMarkup({ icon, heading, descriptionPopUp }) {
+function createPopUpMarkup({ icon, heading, descriptionPopUp, className }) {
   return `
     <button class="popUp-close-button"></button>
     <div class="popUp-heading-wrap">
           <div class="popUp-icon-wrap">
-            <svg class="popUp-icon" width="15" height="15">
+            <svg class="popUp-icon ${className}" width="18" height="18">
               <use
-                href="../img/svg/services/symbol-defs-services.svg#${icon}"
+                href="${symbolDefs}${icon}"
               ></use>
             </svg>
           </div>
@@ -98,15 +99,20 @@ domElements.mobMenuButton.addEventListener("click", () => {
 domElements.servicesList.addEventListener("click", (ev) => {
   if (ev.target.dataset.action === "open-popup") {
     const idCard = ev.target.dataset.id;
-    console.log(idCard);
     let markup = "";
     for (const element of data) {
       if (Number(element.id) === Number(idCard)) {
+        if (element.descriptionPopUp === "") {
+          return;
+        }
         markup = createPopUpMarkup(element);
       }
     }
-    console.log(markup);
+    // domElements.popupContainer.insertAdjacentHTML("beforeend", markup);
     domElements.popupContainer.innerHTML = markup;
+    document
+      .querySelector(".popUp-close-button")
+      .addEventListener("click", closePopUp);
     domElements.popUpBackdrop.classList.remove("is-hidden");
     window.addEventListener("keydown", (e) => {
       if (e.code === "Escape") {
@@ -121,11 +127,12 @@ domElements.servicesList.addEventListener("click", (ev) => {
   }
 });
 
-domElements.popUpCloseButton.addEventListener("click", () => closePopUp());
+// domElements.popUpCloseButton.addEventListener("click", () => closePopUp());
 
 function closePopUp() {
   domElements.popUpBackdrop.classList.add("is-hidden");
   window.removeEventListener("keydown", closePopUp);
+  domElements.popUpBackdrop.removeEventListener("click", closePopUp);
   domElements.popUpBackdrop.removeEventListener("click", closePopUp);
 }
 
@@ -147,9 +154,7 @@ domElements.modalForm.addEventListener("click", (ev) => {
 });
 
 // Close Modal form
-domElements.modalCloseButton.addEventListener("click", () =>
-  domElements.modalBackDrop.classList.add("is-hidden")
-);
+domElements.modalCloseButton.addEventListener("click", closeModal);
 
 function closeModal() {
   domElements.modalBackDrop.classList.add("is-hidden");
@@ -301,4 +306,26 @@ function validation(input) {
     return false;
   } else formElement.classList.remove("error");
   return true;
+}
+
+// Scale cards in mobile
+
+const scroolThrottle = throttle(handleScroll, 300);
+if (window.screen.width < 1400) {
+  window.addEventListener("scroll", scroolThrottle);
+}
+
+function handleScroll(e) {
+  let cardS = document.querySelectorAll(".service-list-item");
+  for (const element of cardS) {
+    let screenPosition = element.getBoundingClientRect().top;
+    if (
+      screenPosition < window.screen.height / 2 &&
+      screenPosition > window.screen.height / 4
+    ) {
+      element.classList.add("scale");
+    } else {
+      element.classList.remove("scale");
+    }
+  }
 }
