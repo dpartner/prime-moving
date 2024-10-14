@@ -56,8 +56,8 @@ export const selectLists = [
         text: "Piano Moving",
       },
       {
-        value: "Pool Tables and Safes",
-        text: "Pool Tables and Safes",
+        value: "Pool Table",
+        text: "Pool Table",
       },
       {
         value: "Cleaning Services",

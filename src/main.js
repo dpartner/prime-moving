@@ -11,8 +11,6 @@ import IMask from "imask";
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-
-
 // Render dynamyc elements
 // document.querySelector('.experience-gallery-list').innerHTML =
 //   addGalleryImg(GalleryLibrary);
@@ -103,14 +101,12 @@ document.querySelector("body").addEventListener("click", (ev) => {
   }
 });
 
-function loaderHeight () {
-  let modalContainer = document.querySelector('.modal-container');
-  let loader = document.querySelector('.loader-wrap');
+function loaderHeight() {
+  let modalContainer = document.querySelector(".modal-container");
+  let loader = document.querySelector(".loader-wrap");
   let loaderHeight = modalContainer.scrollHeight - 128;
 
-  loader.style.height = loaderHeight + 'px';
-
-
+  loader.style.height = loaderHeight + "px";
 }
 
 // Adding custom calendar in Modal Form
@@ -269,29 +265,42 @@ async function handleSendingMail(e) {
     }
   }
 
-  console.log("Form sended");
+  // console.log("Form sended");
 
   // Send code
   let formData = new FormData(domElements.modalForm);
+  const object = {};
+  formData.forEach(function (value, key) {
+    object[key] = value;
+  });
 
+  document.querySelector(".loader-wrap").classList.add("is-show");
+  document.querySelector(".modal-submit-button").textContent = "Sending...";
   let response = await fetch("../send.php", {
+    headers: {
+      "Content-Type": "application/json",
+    },
     method: "POST",
-    body: formData,
+    body: JSON.stringify(object),
+    // headers: {
+    //   "Content-Type": "multipart/form-data",
+    // },
+    // method: "POST",
+    // body: formData,
   });
   if (response.ok) {
     let result = await response.json();
-    document.querySelector('.loader-wrap').classList.add('is-show');
-    document.querySelector('.modal-submit-button').textContent = 'Sending...';
-    setTimeout(()=> {
-      document.querySelector('.loader-wrap').classList.add('sended');
-      document.querySelector('.modal-submit-button').textContent = 'Sended';
-    },2000);
-    setTimeout(()=> {
-      document.querySelector('.loader-wrap').classList.remove('is-show');
+    document.querySelector(".loader-wrap").classList.add("sended");
+    document.querySelector(".modal-submit-button").textContent = "Sended";
+    // setTimeout(() => {
+    //   document.querySelector(".loader-wrap").classList.add("sended");
+    //   document.querySelector(".modal-submit-button").textContent = "Sended";
+    // }, 2000);
+    setTimeout(() => {
+      document.querySelector(".loader-wrap").classList.remove("is-show");
       domElements.modalBackDrop.classList.add("is-hidden");
-      document.querySelector('.modal-submit-button').textContent = 'Send';
-
-    },4000);
+      document.querySelector(".modal-submit-button").textContent = "Send";
+    }, 2000);
     console.log(result.result);
     console.log(result.status);
     domElements.modalForm.reset();
@@ -339,32 +348,33 @@ function validation(input) {
 
 // Adding production href for <a></a>
 
-const allGalleryLargeImgLinks = document.querySelectorAll('.experience-gallery-link.exp');
+const allGalleryLargeImgLinks = document.querySelectorAll(
+  ".experience-gallery-link.exp"
+);
 for (let i = 0; i < allGalleryLargeImgLinks.length; i++) {
-  const numberElement = i +1;
+  const numberElement = i + 1;
   allGalleryLargeImgLinks[i].href = getLargeImgUrl(numberElement);
 }
 
 function getLargeImgUrl(number) {
-  return new URL(`./img/exp-gallery/gallery-large-${number}.jpg`, import.meta.url).href
+  return new URL(
+    `./img/exp-gallery/gallery-large-${number}.jpg`,
+    import.meta.url
+  ).href;
 }
 
 // Adding SimpleLightBox only for PC version
 
-function shownLightBox () {
+function shownLightBox() {
   if (window.innerWidth >= 1400) {
-    const lightbox = new SimpleLightbox('.experience-gallery-list.exp a',{
+    const lightbox = new SimpleLightbox(".experience-gallery-list.exp a", {
       captionDelay: 250,
-    })
-    } else {
-      domElements.expGalleryList.addEventListener('click', (e)=> {
-        e.preventDefault();
-        // console.log(e)
-      })
+    });
+  } else {
+    domElements.expGalleryList.addEventListener("click", (e) => {
+      e.preventDefault();
+      // console.log(e)
+    });
   }
 }
 shownLightBox();
-
-
-
-
